@@ -1,9 +1,12 @@
 <?php
 
 class MainModel extends Model{
+
+	public function Index(){
+		return;
+	}
 	
 	function login() {
-
 
 		$post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 

@@ -11,7 +11,7 @@ class Bootstrap {
 		$this->request = $request;
 
 		if($this->request['controller'] == "") {
-			$this->controller = 'home';
+			$this->controller = 'mainLogin';
 		}
 		else {
 			$this->controller = $request['controller'];
