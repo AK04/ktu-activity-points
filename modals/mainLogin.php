@@ -23,7 +23,7 @@ class MainModel extends Model{
 				$_SESSION['user_data'] = array(
 					"username"	=> $row['username']
 				);
-				header('Location: '.ROOT_URL.'shares');
+				header('Location: '.ROOT_URL.'home');
 			}
 			else {
 				echo "Error";//Messages::setMsg('Incorrect Login', 'error');

@@ -2,7 +2,7 @@
 <html>
 <head>
 
-	<link rel="stylesheet" type="text/css" media="screen" href="<?php echo ROOTPATH; ?>assets/css/add.css" /> 
+
 	<link href="<?php echo ROOTPATH; ?>assets/css/home.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="<?php echo ROOTPATH; ?>assets/css/mainLogin.css">
 
@@ -32,7 +32,7 @@
 
 	<div class="container">
 
-     	<?php require($view); ?>
+        <?php require($view); ?>
 
     </div>
 
@@ -40,3 +40,5 @@
 
 
 </html>
+
+<!--    <?php require($view); ?> --> 

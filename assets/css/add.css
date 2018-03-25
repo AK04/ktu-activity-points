@@ -1,27 +1,27 @@
-.button1{
+.button1 {
     margin-left: 310px;
     margin-top: 40px;
 }
 
-.button2{
+.button2 {
     margin-left: 20px;
     margin-top: 5px;
 }
 
-.sub-head{
+.sub-head {
     font-size: 20px;
     font-weight: bold;
     font-family: monospace;
     padding-left: 100px;
 }
 
-.heading{
+.heading {
     font-family: monospace;
     font-weight: bolder;
     margin-left: 5px;
 }
 
-.notes{
+.notes {
     block-size: 150px;
     margin-left: 20px;
     margin-top: 10px;
