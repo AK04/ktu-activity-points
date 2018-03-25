@@ -32,7 +32,7 @@
 
 	<div class="container">
 
-        <?php require($view); ?>
+        <?php require(Controller::$view); ?>
 
     </div>
 

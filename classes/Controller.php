@@ -4,6 +4,7 @@ abstract class Controller {
 
 	protected $request;
 	protected $action;
+	public static $view;
 
 	public function __construct($action, $request){
 		$this->action = $action;
