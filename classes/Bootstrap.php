@@ -10,14 +10,14 @@ class Bootstrap {
 
 		$this->request = $request;
 
-		if($this->request['controller'] == "") {
+		if(!isset($this->request['controller']) || $this->request['controller'] == '') {
 			$this->controller = 'mainLogin';
 		}
 		else {
 			$this->controller = $request['controller'];
 		}
 
-		if($this->request['action'] == "") {
+		if(!isset($this->request['action']) || $this->request['action']== "") {
 			$this->action = 'index';
 		}
 		else {

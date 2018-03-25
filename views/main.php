@@ -32,6 +32,7 @@
 
 	<div class="container">
 
+        <?php var_dump(Controller::$view);die(); ?>
         <?php require(Controller::$view); ?>
 
     </div>
