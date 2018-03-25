@@ -20,18 +20,22 @@
 
 
      <body>
+
          <div class="container">
-             <div class="header text-center">
-                 <h2><b>KTU ACIVITY POINTS <br>MEC</b></h2>
-             </div>
-             <form action="#" method="POST">
+
+            <div class="header text-center">
+                <h2><b>KTU ACIVITY POINTS <br>MEC</b></h2>
+            </div>
+
+            <form method="POST" action="<?php $_SERVER['PHP_SELF']; ?>">
+              
               <div class="jumbotron">
                      <div class="row">
                          <div class="usrname ">
                              <label for="username">Username</label>
                          </div>                           
                          <div class="usrinp">
-                             <input type="text" id="username" name="USERNAME" required="required" size="30" placeholder="Enter Username..">
+                             <input type="text" id="username" name="username" required="required" size="30" placeholder="Enter Username..">
                          </div>
                          </div>
                          <div class="row">
@@ -46,7 +50,9 @@
                           </div>
                   </div>
               </div>
-              </form>
+
+            </form>
+
          </div>
 
      </body>
