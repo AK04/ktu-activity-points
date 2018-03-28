@@ -1,34 +1,49 @@
+<div class="jumbotron">
 
-<div class="header">
-    <a style="font-size:40px;color:white;">KTU ACTIVITY POINTS-MEC</a>
-    <div class="username">
-        <a>USERNAME</a>
-    </div>
-</div>
 
-<div>
-    <form>
-            <input id="login-button" value="Claim Activity Points" class="login"  type="button">
-    </form>            
-</div>
-<br><br>
-<div>
-    <table style="width:100%;border-style:solid;">
-        <thead>
-            <tr >
+    <h1>KTU ACTIVITY POINTS-MEC</h1>
+
+    <br>
+
+    <div class="text-center"> 
+        <button class="btn btn-success btn-lg" > Claim Activity Points</button> 
+    </div>            
+
+    <br>
+
+
+    <table class="table table-striped">
+
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">SERIAL NO.</th>
+                <th scope="col">ACTIVITY</th>
+                <th scope="col">POINTS</th>
+                <th scope="col">DOCUMENT(S)</th>
+                <th scope="col">STATUS</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
                 <th>SERIAL NO.</th>
                 <th>ACTIVITY</th>
                 <th>POINTS</th>
                 <th>DOCUMENT(S)</th>
                 <th>STATUS</th>
             </tr>
-        </thead>
-        <tr>
-            <th>SERIAL NO.</th>
-            <th>ACTIVITY</th>
-            <th>POINTS</th>
-            <th>DOCUMENT(S)</th>
-            <th>STATUS</th>
-        </tr>
+        </tbody>
+
+        <tbody>
+            <tr>
+                <th>SERIAL NO.</th>
+                <th>ACTIVITY</th>
+                <th>POINTS</th>
+                <th>DOCUMENT(S)</th>
+                <th>STATUS</th>
+            </tr>
+        </tbody>
+
     </table>
+
 </div>

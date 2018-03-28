@@ -24,14 +24,16 @@ class Bootstrap {
 			$this->action = $request['action'];
 		}
 
+		echo $controller;
+
 	}
 
 
 	public function createController() {
 
 		if(class_exists($this->controller)) {
-			$parents = class_parents($this->controller);
 
+			$parents = class_parents($this->controller);
 
 			if(in_array("controller", $parents)) {
 
