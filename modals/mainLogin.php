@@ -6,7 +6,7 @@ class MainModel extends Model{
 		return;
 	}
 	
-	function login() {
+	public function login() {
 
 		$post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
@@ -20,9 +20,8 @@ class MainModel extends Model{
 
 			if($row){
 				$_SESSION['is_logged_in'] = true;
-				$_SESSION['user_data'] = array(
-					"username"	=> $row['username']
-				);
+				$_SESSION['user'] = $row['username'];
+
 				header('Location: '.ROOT_URL.'home');
 			}
 			else {

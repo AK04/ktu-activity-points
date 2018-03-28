@@ -17,7 +17,7 @@ class MainLogin extends Controller{
 		unset($_SESSION['user_data']);
 		session_destroy();
 		// Redirect
-		header('Location: '.ROOT_URL);
+		header('Location: '.ROOT_URL.'mainLogin');
 	}
 	
 }
