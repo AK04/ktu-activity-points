@@ -10,6 +10,9 @@ class Bootstrap {
 
 		$this->request = $request;
 
+		var_dump($request);
+		die();
+
 		if(!isset($this->request['controller']) || $this->request['controller'] == '') {
 			$this->controller = 'mainLogin';
 		}
