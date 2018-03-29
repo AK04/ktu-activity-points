@@ -1,6 +1,5 @@
 <div class="jumbotron">
 
-
     <h1>KTU ACTIVITY POINTS-MEC</h1>
 
     <br>

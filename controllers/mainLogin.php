@@ -8,7 +8,7 @@ class MainLogin extends Controller{
 	}
 	
 	protected function login(){
-		$viewmodel = new UserModel();
+		$viewmodel = new MainModel();
 		$this->returnView($viewmodel->login(), true);
 	}
 
