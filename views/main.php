@@ -17,7 +17,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
 
-    <title>Login Page</title>
+    <title>Activity Points</title>
 
 </head>
 

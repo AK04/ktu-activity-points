@@ -1,16 +1,16 @@
 <?php
 
-class Home extends Controller {
+class Admin extends Controller {
 
 	protected function Index() {
 
-		if(!isset($_SESSION['is_logged_in'])){
+		if(!isset($_SESSION['is_logged_in']) || $_SESSION['user'] != 'admin'){
 			header('Location: '.ROOT_URL);
 		}
 
-		$viewmodel = new HomeModel();
-
-		$this->returnView($viewmodel->Index(), true);
+		$viewmodel = new AdminModel();
+ 
+		$this->returnView($viewmodel->Index(), true);	
 
 	}
 

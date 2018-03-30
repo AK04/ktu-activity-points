@@ -2,7 +2,7 @@
 
 class LoginModel extends Model{
 
-	public function Index(){
+	public function Index() {
 
 		$post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);		
 
@@ -17,9 +17,15 @@ class LoginModel extends Model{
 			if($row){
 				$_SESSION['is_logged_in'] = true;
 				$_SESSION['user'] = $row['username'];
-				header('Location: '.ROOT_URL.'?controller=home');
+
+				if ($_SESSION['user'] == 'admin') {
+					header('Location: '.ROOT_URL.'?controller=admin');
+				} 
+				else
+					header('Location: '.ROOT_URL.'?controller=home');
 
 			}
+
 			else {
 				echo "Error";//Messages::setMsg('Incorrect Login', 'error');
 			}

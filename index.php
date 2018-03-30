@@ -13,10 +13,12 @@ require('classes/Controller.php');
 require('classes/Model.php');
 
 require('controllers/login.php');
+require('controllers/admin.php');
 require('controllers/home.php');
 require('controllers/add.php');
 
 require('modals/login.php');
+require('modals/admin.php');
 require('modals/home.php');
 require('modals/add.php');
 
