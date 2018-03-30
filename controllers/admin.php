@@ -24,4 +24,12 @@ class Admin extends Controller {
 		
 	}
 
+	protected function changeStatus() {
+
+		$viewmodel = new AdminModel();
+ 
+		$this->returnView($viewmodel->changeStatus(), true);
+		
+	}
+
 }

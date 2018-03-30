@@ -46,7 +46,7 @@
                 <th><?php 
 
                 if ($item['Approved'] == 0)
-                    echo "Not Approved";
+                    echo "Waiting";
                 elseif ($item['Approved'] == 1) 
                     echo "Approved";
                 else

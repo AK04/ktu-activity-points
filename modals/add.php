@@ -493,8 +493,7 @@ class AddModel extends Model {
 			$this->bind(':user', $_SESSION['user']);
 			$this->execute();
 
-			if($this->lastInsertId()){
-
+			if($this->lastInsertId()) {
 				header('Location: '.ROOT_URL.'?controller=home');
 			}
 			else {

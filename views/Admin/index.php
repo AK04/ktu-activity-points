@@ -14,6 +14,7 @@
 
     <h1 style="text-align: center;">KTU ACTIVITY POINTS-MEC</h1>
 
+    <br>
 
     <table class="table table-striped" style="text-align: center;">
 
@@ -26,6 +27,7 @@
                 <th scope="col">NOTES</th>
                 <th scope="col">DATE ADDED</th>
                 <th scope="col">USER</th>
+                <th scope="col">ACTION</th>
             </tr>
         </thead>
 
@@ -37,9 +39,11 @@
                 <th><?php echo $i ?></th>
                 <th><?php echo $item['Activity']; ?></th>
                 <th><?php echo $item['Points']; ?></th>
+                <th><?php echo $item['Document']; ?></th>
                 <th><?php echo $item['Notes']; ?></th>
                 <th><?php echo $item['AddDate']; ?></th>
                 <th><?php echo $item['User']; ?></th>
+                <th><a class="btn btn-success" href="<?php echo ROOTPATH; ?>?controller=admin&action=changeStatus&change=1&no=<?php echo $item['No']; ?>">Accept</a>
             </tr>
 
             <?php endforeach; ?>
