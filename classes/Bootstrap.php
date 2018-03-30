@@ -11,7 +11,7 @@ class Bootstrap {
 		$this->request = $request;		
 
 		if(!isset($this->request['controller']) || $this->request['controller'] == '') {
-			$this->controller = 'mainLogin';
+			$this->controller = 'login';
 		}
 		else {
 			$this->controller = $request['controller'];

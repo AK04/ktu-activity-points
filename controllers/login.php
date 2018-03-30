@@ -1,10 +1,10 @@
 <?php
 
-class MainLogin extends Controller{
+class Login extends Controller{
 
 	protected function Index() {
 
-		$viewmodel = new MainModel();
+		$viewmodel = new LoginModel();
 		$this->returnView($viewmodel->Index(), true);
 
 	}

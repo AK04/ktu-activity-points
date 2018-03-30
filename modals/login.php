@@ -1,6 +1,6 @@
 <?php
 
-class MainModel extends Model{
+class LoginModel extends Model{
 
 	public function Index(){
 
