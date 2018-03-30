@@ -6,7 +6,7 @@
         
         </br>
 
-        <form method="post" action="<?php $_SERVER['PHP_SELF']; ?>" >
+        <form method="post" action="<?php $_SERVER['PHP_SELF']; ?>" enctype="multipart/form-data" >
 
             <div class="form-group">
 
@@ -97,8 +97,8 @@
 
             <div class="form-group">
 
-                <label class="col-form-label" >Document: </label>
-                <button class="button2 btn btn-danger form-control">Upload</button>                
+                <label class="col-form-label" >Document: </label> 
+                <input class="form-control" type="file" name="fileToUpload" id="fileToUpload">              
 
             </div>
 
