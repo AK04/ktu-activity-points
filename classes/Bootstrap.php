@@ -8,10 +8,7 @@ class Bootstrap {
 
 	public function __construct($request) {
 
-		$this->request = $request;
-
-		var_dump($request);
-		die();
+		$this->request = $request;		
 
 		if(!isset($this->request['controller']) || $this->request['controller'] == '') {
 			$this->controller = 'mainLogin';
@@ -26,8 +23,6 @@ class Bootstrap {
 		else {
 			$this->action = $request['action'];
 		}
-
-		echo $this->controller;
 
 	}
 

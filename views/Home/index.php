@@ -5,7 +5,7 @@
     <br>
 
     <div class="text-center"> 
-        <button class="btn btn-success btn-lg" > Claim Activity Points</button> 
+        <a class="btn btn-success btn-lg" href="<?php echo ROOTPATH; ?>?controller=add"> Claim Activity Points</a> 
     </div>            
 
     <br>
@@ -15,32 +15,26 @@
 
         <thead class="thead-dark">
             <tr>
-                <th scope="col">SERIAL NO.</th>
+                <th scope="col">SL NO.</th>
                 <th scope="col">ACTIVITY</th>
                 <th scope="col">POINTS</th>
-                <th scope="col">DOCUMENT(S)</th>
                 <th scope="col">STATUS</th>
+                <th scope="col">DATE ADDED</th>
             </tr>
         </thead>
 
         <tbody>
-            <tr>
-                <th>SERIAL NO.</th>
-                <th>ACTIVITY</th>
-                <th>POINTS</th>
-                <th>DOCUMENT(S)</th>
-                <th>STATUS</th>
-            </tr>
-        </tbody>
 
-        <tbody>
+            <?php foreach($viewmodel as $item) : ?>
             <tr>
-                <th>SERIAL NO.</th>
-                <th>ACTIVITY</th>
-                <th>POINTS</th>
-                <th>DOCUMENT(S)</th>
-                <th>STATUS</th>
+                <th><?php echo $item['No']; ?></th>
+                <th><?php echo $item['Activity']; ?></th>
+                <th><?php echo $item['Points']; ?></th>
+                <th><?php echo $item['Approvad']; ?></th>
+                <th><?php echo $item['AddDate']; ?></th>
             </tr>
+            <?php endforeach; ?>
+
         </tbody>
 
     </table>

@@ -2,8 +2,8 @@
 
 class AddModel extends Model {
 
-	public function add() {
-		// Sanitize POST
+	public function Index() {
+
 		$post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
 		if($post['submit']){
@@ -17,17 +17,23 @@ class AddModel extends Model {
 
 			$this->bind(':activity', $post['activity']);
 			$this->bind(':level', $post['level']);
-			$this->bind(':points', $post['points']); // use a function to calcuate points
+			$this->bind(':points', $post['points']); 
 			$this->bind(':approval', false);
 			$this->bind(':user', $_SESSION['user']);
 			$this->execute();
-			// Verify
+
 			if($this->lastInsertId()){
-				// Redirect
-				header('Location: '.ROOT_URL.'home');
+
+				header('Location: '.ROOT_URL.'?controller=home');
 			}
+			else {
+				echo "error";
+			}
+
 		}
+
 		return;
+
 	}
 
 }
