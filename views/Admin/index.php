@@ -43,7 +43,10 @@
                 <th><?php echo $item['Notes']; ?></th>
                 <th><?php echo $item['AddDate']; ?></th>
                 <th><?php echo $item['User']; ?></th>
-                <th><a class="btn btn-success" href="<?php echo ROOTPATH; ?>?controller=admin&action=changeStatus&change=1&no=<?php echo $item['No']; ?>">Accept</a>
+                <th>
+                    <a class="btn btn-success" href="<?php echo ROOTPATH; ?>?controller=admin&action=changeStatus&change=1&no=<?php echo $item['No']; ?>">Accept</a>
+                    <a class="btn btn-danger" href="<?php echo ROOTPATH; ?>?controller=admin&action=changeStatus&change=2&no=<?php echo $item['No']; ?>">Reject</a>
+                </th>
             </tr>
 
             <?php endforeach; ?>

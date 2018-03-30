@@ -497,7 +497,8 @@ class AddModel extends Model {
 				header('Location: '.ROOT_URL.'?controller=home');
 			}
 			else {
-				echo "error";
+				echo "Database Error";
+				die();
 			}
 
 		}
