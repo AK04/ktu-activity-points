@@ -1,6 +1,6 @@
 <?php
 
-function calculatePoints($info) {
+function calculate_points($info) {
 
 	$points = 0;
 
@@ -287,7 +287,7 @@ function calculatePoints($info) {
 
 }
 
-function returnActivity($activity, $prize) {
+function return_activity($activity, $prize) {
 
 	switch ($activity) {
 
@@ -480,8 +480,9 @@ class AddModel extends Model {
 
 		if($post['submit']) {
 
-			$target_dir = ROOTPATH."assets/documents/";
+			$target_dir = SITE_ROOT . "/assets/Documents/";
 			$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+			$file_link = "assets/Documents/" . basename($_FILES["fileToUpload"]["name"]);
 
 			$uploadOk = 1;
 			$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -512,6 +513,7 @@ class AddModel extends Model {
 			// Check if $uploadOk is set to 0 by an error
 			if ($uploadOk == 0) {
 			    echo "Sorry, your file was not uploaded.";
+			    header('Location: '.ROOT_URL.'?controller=add');
 			// if everything is ok, try to upload file
 			} else {
 			    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
@@ -523,14 +525,15 @@ class AddModel extends Model {
 
 
 			// Insert into MySQL
-			$this->query('INSERT INTO PointsTable (Activity, Level, Prize, Involvement, Notes, Points, Approved, User) VALUES (:activity, :level, :prize, :involvement, :notes, :points, :approval, :user)');
+			$this->query('INSERT INTO PointsTable (Activity, Level, Prize, Involvement, Notes, Points, Document, Approved, User) VALUES (:activity, :level, :prize, :involvement, :notes, :points, :document, :approval, :user)');
 
-			$this->bind(':activity', returnActivity($post['activity'],$post['prize']));
+			$this->bind(':activity', return_activity($post['activity'],$post['prize']));
 			$this->bind(':level', $post['level']);
 			$this->bind(':prize', $post['prize']);
 			$this->bind(':involvement', $post['involvement']);
 			$this->bind(':notes', $post['notes']);
-			$this->bind(':points', calculatePoints($post)); 
+			$this->bind(':points', calculate_points($post));
+			$this->bind(':document', $file_link); 
 			$this->bind(':approval', 0);
 			$this->bind(':user', $_SESSION['user']);
 			$this->execute();

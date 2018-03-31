@@ -39,13 +39,15 @@
                 <th><?php echo $i ?></th>
                 <th><?php echo $item['Activity']; ?></th>
                 <th><?php echo $item['Points']; ?></th>
-                <th><?php echo $item['Document']; ?></th>
+                <th>
+                    <a class="btn btn-success" target="_blank" href="<?php echo ROOT_URL.$item['Document'];?>">View</a>
+                </th>
                 <th><?php echo $item['Notes']; ?></th>
                 <th><?php echo $item['AddDate']; ?></th>
                 <th><?php echo $item['User']; ?></th>
-                <th>
-                    <a class="btn btn-success" href="<?php echo ROOTPATH; ?>?controller=admin&action=changeStatus&change=1&no=<?php echo $item['No']; ?>">Accept</a>
-                    <a class="btn btn-danger" href="<?php echo ROOTPATH; ?>?controller=admin&action=changeStatus&change=2&no=<?php echo $item['No']; ?>">Reject</a>
+                <th class="btn-group-vertical">
+                    <a class="btn btn-success btn-sm" href="<?php echo ROOTPATH; ?>?controller=admin&action=changeStatus&change=1&no=<?php echo $item['No']; ?>" style="margin-bottom: 2px;" >Accept</a>
+                    <a class="btn btn-danger btn-sm" href="<?php echo ROOTPATH; ?>?controller=admin&action=changeStatus&change=2&no=<?php echo $item['No']; ?>">Reject</a>
                 </th>
             </tr>
 
