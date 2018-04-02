@@ -1,6 +1,6 @@
 <div class="jumbotron">
 
-    <h1 style="text-align: center;">KTU ACTIVITY POINTS-MEC</h1>
+    <h1 class="ktu">KTU ACTIVITY POINTS-MEC</h1>
 
     <div style="text-align: right;">  
 

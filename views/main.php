@@ -33,7 +33,7 @@
 </body>
 
 <footer class="text-center">
-  <p>If you want to make this website better, feel free to contribute <a href="https://github.com/AK04/ktu-activity-points"> here</a>! </p>
+  <p>If you want to make this website better, feel free to contribute <a href="https://github.com/AK04/ktu-activity-points" target="_blank"> here</a>! </p>
  </footer>
 
 </html>
