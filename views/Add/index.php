@@ -21,7 +21,7 @@
                     <option value="6">Performing arts</option>
                     <option value="7">Literary arts</option>
                     <option value="8">Tech Fest, Tech Quiz</option>
-                    <option value="9">MOOC with final assessment certificate</option>
+                    <option value="9">Massive Open Online Courses with final assessment certificate</option>
                     <option value="10">Competitions conducted by Professional Societies - (IEEE, IET, ASME, SAE, NASA etc.)</option>
                     <option value="11">Attending Full time Conference/Seminars/Exhibitions/Workshop/ STTP conducted at IITs /NITs</option>
                     <option value="11a">Attending Full time Conference/Seminars/Exhibitions/Workshop/ STTP conducted at KTU or its affiliated institutes</option>

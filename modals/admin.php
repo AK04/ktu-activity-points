@@ -10,6 +10,10 @@ class AdminModel extends Model {
 
 	public function changeStatus() {
 
+		if ($_SESSION['user'] != 'admin') {
+			header('Location: '.ROOT_URL);
+		}
+
 		$this->query('UPDATE `PointsTable` SET `Approved` = :change WHERE `PointsTable`.`No` = :no;');
 		$this->bind(':change',$_GET['change']);
 		$this->bind(':no',$_GET['no']);
