@@ -111,7 +111,8 @@
                 
             </br>
 
-            <input class="btn btn-primary" type="submit" name="submit" value="Submit">              
+            <input class="btn btn-primary" type="submit" name="submit" value="Submit"> 
+            <a class="btn btn-danger" href="<?php echo ROOTPATH; ?>?controller=home" >Cancel</a>             
 
         </form>
 

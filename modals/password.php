@@ -12,19 +12,13 @@ class PassModel extends Model {
 
 		if($post['submit']) {
 
-			/*
-			var_dump($rows);
-			die(var_dump($post));
-*/
 
-			if ($post['current_pass'] == $rows['password']) {
-				echo "Current Password is wrong";
-				header('Location: '.ROOT_URL.'?controller=password');
+			if ($post['current_pass'] != $rows[0]['password']) {
+				Messages::setMsg('Current Password is wrong', 'error');
 			}
 
-			elseif ($post['new_pass'] !== $post['check_new_pass']) {
-				echo "Repeated password is wrong";
-				header('Location: '.ROOT_URL.'?controller=password');
+			elseif ($post['new_pass'] != $post['check_new_pass']) {
+				Messages::setMsg('Repeated password is wrong', 'error');
 			}
 
 			else {

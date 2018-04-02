@@ -27,7 +27,7 @@ class LoginModel extends Model{
 			}
 
 			else {
-				echo "Error";//Messages::setMsg('Incorrect Login', 'error');
+				Messages::setMsg('Incorrect Login', 'error');
 			}
 
 		}

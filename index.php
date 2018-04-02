@@ -11,6 +11,7 @@ require('config.php');
 require('classes/Bootstrap.php');
 require('classes/Controller.php');
 require('classes/Model.php');
+require('classes/Messages.php');
 
 require('controllers/login.php');
 require('controllers/admin.php');

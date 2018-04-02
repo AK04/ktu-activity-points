@@ -490,60 +490,71 @@ class AddModel extends Model {
 			// Check if image file is a actual image or fake image
 			$check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
 
+			if (file_exists($target_file)) {
+				die("rename");
+				Messages::setMsg("Please rename your file", 'error');
+			    $uploadOk = 0;
+			}
+
 		    if($check !== false) {
-		        echo "File is an image - " . $check["mime"] . ".";
 		        $uploadOk = 1;
 		    } else {
-		        echo "File is not an image.";
+		    	die("not image");
+		        Messages::setMsg("File is not an image", 'error');
 		        $uploadOk = 0;
 		    }
 
 		    if ($_FILES["fileToUpload"]["size"] > 500000) {
-			    echo "Sorry, your file is too large.";
+		    	Messages::setMsg("Sorry, your file is too large", 'error');
+		    	die("large");
 			    $uploadOk = 0;
 			}
 
-			// Allow certain file formats
 			if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
 			&& $imageFileType != "gif" ) {
-			    echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+				Messages::setMsg("Sorry, only JPG, JPEG, PNG & GIF files are allowed.", 'error');
+				die("not image 2");
 			    $uploadOk = 0;
 			}
 			
-			// Check if $uploadOk is set to 0 by an error
 			if ($uploadOk == 0) {
-			    echo "Sorry, your file was not uploaded.";
-			    header('Location: '.ROOT_URL.'?controller=add');
-			// if everything is ok, try to upload file
-			} else {
+			    Messages::setMsg("Sorry, your file cannot be uploaded", 'error');
+			} 
+
+			else {
+
 			    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
 			        echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
-			    } else {
-			        echo "Sorry, there was an error uploading your file.";
+			    } 
+
+			    else {			    	
+			    	Messages::setMsg("Sorry, there was an error uploading your file", 'error');
+			    	$uploadOk = 0;
 			    }
 			}
 
+			if ($uploadOk != 0) {
 
-			// Insert into MySQL
-			$this->query('INSERT INTO PointsTable (Activity, Level, Prize, Involvement, Notes, Points, Document, Approved, User) VALUES (:activity, :level, :prize, :involvement, :notes, :points, :document, :approval, :user)');
+				$this->query('INSERT INTO PointsTable (Activity, Level, Prize, Involvement, Notes, Points, Document, Approved, User) VALUES (:activity, :level, :prize, :involvement, :notes, :points, :document, :approval, :user)');
 
-			$this->bind(':activity', return_activity($post['activity'],$post['prize']));
-			$this->bind(':level', $post['level']);
-			$this->bind(':prize', $post['prize']);
-			$this->bind(':involvement', $post['involvement']);
-			$this->bind(':notes', $post['notes']);
-			$this->bind(':points', calculate_points($post));
-			$this->bind(':document', $file_link); 
-			$this->bind(':approval', 0);
-			$this->bind(':user', $_SESSION['user']);
-			$this->execute();
+				$this->bind(':activity', return_activity($post['activity'],$post['prize']));
+				$this->bind(':level', $post['level']);
+				$this->bind(':prize', $post['prize']);
+				$this->bind(':involvement', $post['involvement']);
+				$this->bind(':notes', $post['notes']);
+				$this->bind(':points', calculate_points($post));
+				$this->bind(':document', $file_link); 
+				$this->bind(':approval', 0);
+				$this->bind(':user', $_SESSION['user']);
+				$this->execute();
 
-			if($this->lastInsertId()) {
-				header('Location: '.ROOT_URL.'?controller=home');
-			}
-			else {
-				echo "Database Error";
-				die();
+				if($this->lastInsertId()) {
+					header('Location: '.ROOT_URL.'?controller=home');
+				}
+				else {
+					Messages::setMsg("Database Error", 'error');
+				}
+
 			}
 
 		}

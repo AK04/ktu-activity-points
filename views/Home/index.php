@@ -1,18 +1,22 @@
 <div class="jumbotron">
 
-    <div style="text-align: right;">
+    <h1 style="text-align: center;">KTU ACTIVITY POINTS-MEC</h1>
 
-        <div > 
+    <div style="text-align: right;">  
+
+        <div class="username" > 
             <?php echo $_SESSION['user']; ?>
+        </div>      
+
+        <div>
+            <a class="btn btn-info right" href="<?php echo ROOTPATH; ?>?controller=password" style="margin-bottom: 5px">Change Password</a>      
         </div>
 
         <div>
             <a class="btn btn-danger right" href="<?php echo ROOTPATH; ?>?controller=home&action=logout">Logout</a>      
         </div>
 
-    </div>
-
-    <h1 style="text-align: center;">KTU ACTIVITY POINTS-MEC</h1>
+    </div>    
 
     <br>
 
@@ -27,10 +31,10 @@
         <thead class="thead-dark">
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">ACTIVITY</th>
+                <th scope="col"><a href="https://github.com/AK04" target="_blank" style="color: white;">A</a>CTIVITY</th>
                 <th scope="col">POINTS</th>
-                <th scope="col">STATUS</th>
-                <th scope="col">DATE ADDED</th>
+                <th scope="col">ST<a href="https://github.com/Joe1912" target="_blank" style="color: white;">A</a>TUS</th>
+                <th scope="col">D<a href="https://github.com/alfvj17" target="_blank" style="color: white;">A</a>TE <a href="https://github.com/Nikhil713" target="_blank" style="color: white;">A</a>DDED</th>
             </tr>
         </thead>
 
