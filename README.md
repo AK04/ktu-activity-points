@@ -45,3 +45,9 @@ ALTER TABLE `users`
 INSERT INTO `users` (`Id`, `username`, `password`) VALUES
 (1, 'user', 'pass'),
 (2, 'admin', 'admin');
+
+4. In assets folder, create a folder named 'Documents' with capital 'D'. Then try 'sudo chmod 777 Documents' while in the assets folder.
+
+5. You are up and running!
+
+*Note: You might need to set 'file_uploads = On' in your php.ini file*
