@@ -10,7 +10,7 @@ A webpage for students to enter activity points and certificates.
 3. Create these Tables in the database by running following commands:
 
 CREATE TABLE `PointsTable` (
-  `No` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `No` int(10) UNSIGNED NOT NULL,
   `Activity` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `Level` int(11) DEFAULT NULL,
   `Prize` int(11) NOT NULL,
@@ -26,9 +26,12 @@ CREATE TABLE `PointsTable` (
 ALTER TABLE `PointsTable`
   ADD PRIMARY KEY (`No`);
 
+ALTER TABLE `PointsTable`
+  MODIFY `No` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+
 
 CREATE TABLE `users` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `Id` int(11) NOT NULL,
   `username` varchar(20) NOT NULL,
   `password` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -36,6 +39,9 @@ CREATE TABLE `users` (
 ALTER TABLE `users`
   ADD PRIMARY KEY (`Id`);
 
+ALTER TABLE `users`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
+
 INSERT INTO `users` (`Id`, `username`, `password`) VALUES
-(1, 'User1', 'pass'),
+(1, 'user', 'pass'),
 (2, 'admin', 'admin');
