@@ -26,10 +26,16 @@ class Admin extends Controller {
 
 	protected function changeStatus() {
 
-		$viewmodel = new AdminModel();
- 
+		$viewmodel = new AdminModel(); 
 		$this->returnView($viewmodel->changeStatus(), true);
 		
+	}
+
+	protected function pending() {
+
+		$viewmodel = new AdminModel();
+		$this->returnView($viewmodel->pending(), true);
+
 	}
 
 }

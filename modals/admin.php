@@ -3,9 +3,7 @@
 class AdminModel extends Model {
 
 	public function Index() {
-		$this->query('SELECT * FROM PointsTable WHERE Approved = 0 OR Approved = NULL');
-		$rows = $this->resultSet();
-		return $rows;
+		return;
 	}
 
 	public function changeStatus() {
@@ -20,6 +18,14 @@ class AdminModel extends Model {
 		$this->execute();
 
 		header('Location: '.ROOT_URL.'?controller=admin');
+
+	}
+
+	public function pending() {
+
+		$this->query('SELECT * FROM PointsTable WHERE Approved = 0 OR Approved = NULL');
+		$rows = $this->resultSet();
+		return $rows;
 
 	}
 
