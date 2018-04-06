@@ -17,13 +17,22 @@ class AdminModel extends Model {
 		$this->bind(':no',$_GET['no']);
 		$this->execute();
 
-		header('Location: '.ROOT_URL.'?controller=admin');
+		header('Location: '.ROOT_URL.'?controller=admin&action=pending');
 
 	}
 
 	public function pending() {
 
 		$this->query('SELECT * FROM PointsTable WHERE Approved = 0 OR Approved = NULL');
+		$rows = $this->resultSet();
+		return $rows;
+
+	}
+
+	public function classList() {
+
+		$this->query('SELECT * FROM PointsTable WHERE class = :class');
+		$this->bind(':class', $_SESSION['class']);
 		$rows = $this->resultSet();
 		return $rows;
 

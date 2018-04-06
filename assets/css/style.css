@@ -14,3 +14,9 @@
 	font-weight: 900;
 	text-align: center;
 }
+
+.cent {
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+}

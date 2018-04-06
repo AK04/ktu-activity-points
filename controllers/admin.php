@@ -38,4 +38,11 @@ class Admin extends Controller {
 
 	}
 
+	protected function classList() {
+
+		$viewmodel = new AdminModel();
+		$this->returnView($viewmodel->classList(), true);
+
+	}
+
 }
