@@ -3,10 +3,68 @@
 class HomeModel extends Model {
 
 	public function Index(){
-		$this->query('SELECT * FROM PointsTable WHERE User = :username ORDER BY AddDate DESC');
+
+		$this->query('SELECT * FROM PointsTable WHERE User = :username ORDER BY AddDate DESC;');
 		$this->bind(':username', $_SESSION['user']);
 		$rows = $this->resultSet();
+
+		$this->query('SELECT InfoUpdate FROM users WHERE username = :username;');
+		$this->bind(':username', $_SESSION['user']);
+		$info = $this->resultSet();
+
+		if($info[0]['InfoUpdate'] == '0') {
+			Messages::setMsg('Update your information for claiming activity points', 'error');
+				$_SESSION['shouldUpdate'] = true;
+		}
+		else
+			$_SESSION['shouldUpdate'] = false;
+
 		return $rows;
+	}
+
+	public function updateInfo() {
+
+		$post  = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+		if($post['submit']) {
+
+			if(strlen($post['register']) != 10) {
+				Messages::setMsg("Invalid register number", 'error');
+				return;
+			}
+
+
+			if(strlen($post['rollno']) != 8) {
+				Messages::setMsg("Invalid Roll number information", 'error');
+				return;
+			}
+
+			if(strlen($post['admno']) != 7) {
+				Messages::setMsg("Invalid Admission number information", 'error');
+				return;
+			}
+
+			if(strlen($post['class']) != 5) {
+				Messages::setMsg("Invalid Class information", 'error');
+				return;
+			}
+
+			$this->query('UPDATE `users` SET `RegisterNo` = :register, `RollNo` = :rollno, `AdmNo` = :admno, `Class` = :class, `InfoUpdate` = :infoupdate WHERE `users`.`username` = :user;');
+
+			$this->bind(':register', $post['register']);
+			$this->bind(':rollno', $post['rollno']);
+			$this->bind(':admno', $post['admno']);
+			$this->bind(':class', $post['class']);
+			$this->bind(':infoupdate', true);
+			$this->bind(':user', $_SESSION['user']);
+			$this->execute();
+
+			header('Location: '. ROOTPATH . '?controller=home');
+
+		}
+
+		return;
+
 	}
 
 }

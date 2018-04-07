@@ -12,6 +12,11 @@
             <a class="btn btn-info right" href="<?php echo ROOTPATH; ?>?controller=password" style="margin-bottom: 5px">Change Password</a>      
         </div>
 
+
+        <div>
+            <a class="btn btn-info right" href="<?php echo ROOTPATH; ?>?controller=home&action=updateInfo" style="margin-bottom: 5px">Update Info</a>      
+        </div>        
+
         <div>
             <a class="btn btn-danger right" href="<?php echo ROOTPATH; ?>?controller=home&action=logout">Logout</a>      
         </div>

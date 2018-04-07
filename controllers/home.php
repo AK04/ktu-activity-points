@@ -24,4 +24,12 @@ class Home extends Controller {
 		
 	}
 
+	protected function updateInfo() {
+
+		$viewmodel = new HomeModel();
+
+		$this->returnView($viewmodel->updateInfo(), true);
+
+	}
+
 }
