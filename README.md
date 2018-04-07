@@ -33,7 +33,12 @@ ALTER TABLE `PointsTable`
 CREATE TABLE `users` (
   `Id` int(11) NOT NULL,
   `username` varchar(20) NOT NULL,
-  `password` varchar(20) NOT NULL
+  `password` varchar(20) NOT NULL,
+  `RegisterNo` varchar(10) DEFAULT NULL,
+  `RollNo` varchar(8) DEFAULT NULL,
+  `AdmNo` varchar(7) DEFAULT NULL,
+  `Class` varchar(5) DEFAULT NULL,
+  `InfoUpdate` tinyint(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 ALTER TABLE `users`
