@@ -45,4 +45,12 @@ class Admin extends Controller {
 
 	}
 
+	protected function studentProfile() {
+
+		$viewmodel = new AdminModel();
+
+		$this->returnView($viewmodel->studentProfile(), true);
+
+	}
+
 }

@@ -12,7 +12,8 @@ class HomeModel extends Model {
 		$this->bind(':username', $_SESSION['user']);
 		$info = $this->resultSet();
 
-		if($info[0]['InfoUpdate'] == '0') {
+
+		if($info[0]['InfoUpdate'] == '0' || $info[0]['InfoUpdate'] == null ) {
 			Messages::setMsg('Update your information for claiming activity points', 'error');
 				$_SESSION['shouldUpdate'] = true;
 		}

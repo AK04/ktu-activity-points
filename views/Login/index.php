@@ -24,6 +24,16 @@
 
                 </div>
 
+                <div class="form-group">
+
+                    <label class="col-form-label" >Class:</label>
+
+                    <select class="form-control" name="class">
+                        <option value="CS17B">CS17B</option>
+                    </select>
+
+                </div>
+
                 <input class="btn btn-primary" type="submit" name="submit" value="Login">
 
             </form>

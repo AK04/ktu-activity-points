@@ -31,9 +31,19 @@ class AdminModel extends Model {
 
 	public function classList() {
 
-		$this->query('SELECT * FROM PointsTable WHERE class = :class');
+		$this->query('SELECT * FROM users WHERE users.class = :class AND username <> "admin";');
 		$this->bind(':class', $_SESSION['class']);
 		$rows = $this->resultSet();
+		return $rows;
+
+	}
+
+	public function studentProfile() {
+
+		$this->query('SELECT * FROM PointsTable WHERE User = :username ORDER BY AddDate DESC;');
+		$this->bind(':username', $_GET['student']);		
+		$rows = $this->resultSet();
+
 		return $rows;
 
 	}
