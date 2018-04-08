@@ -34,6 +34,7 @@ CREATE TABLE `users` (
   `Id` int(11) NOT NULL,
   `username` varchar(20) NOT NULL,
   `password` varchar(20) NOT NULL,
+  `TotalPoints` int(11) DEFAULT NULL,
   `RegisterNo` varchar(10) DEFAULT NULL,
   `RollNo` varchar(8) DEFAULT NULL,
   `AdmNo` varchar(7) DEFAULT NULL,
@@ -42,7 +43,10 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`Id`);
+  ADD PRIMARY KEY (`Id`),
+  ADD UNIQUE KEY `RegisterNo` (`RegisterNo`),
+  ADD UNIQUE KEY `RollNo` (`RollNo`),
+  ADD UNIQUE KEY `AdmNo` (`AdmNo`);
 
 ALTER TABLE `users`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
@@ -51,7 +55,7 @@ INSERT INTO `users` (`Id`, `username`, `password`) VALUES
 (1, 'user', 'pass'),
 (2, 'admin', 'admin');
 
-4. In assets folder, create a folder named 'Documents' with capital 'D'. Then try 'sudo chmod 777 Documents' while in the assets folder.
+4. In assets folder, create a folder named 'Documents' (D must be capital). Then try 'sudo chmod 777 Documents' while in the assets folder.
 
 5. You are up and running!
 
