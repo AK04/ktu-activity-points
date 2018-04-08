@@ -24,6 +24,16 @@ class HomeModel extends Model {
 
 	public function updateInfo() {
 
+
+		$this->query('SELECT * FROM users WHERE username = :username;');
+		$this->bind(':username', $_SESSION['user']);		
+		$row = $this->single();
+
+		$_SESSION['register'] = $row['RegisterNo'];
+		$_SESSION['rollno'] = $row['RollNo'];
+		$_SESSION['admno'] = $row['AdmNo'];
+		$_SESSION['class'] = $row['Class'];
+
 		$post  = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
 		if($post['submit']) {
