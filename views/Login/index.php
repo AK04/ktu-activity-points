@@ -29,7 +29,11 @@
                     <label class="col-form-label" >Class:</label>
 
                     <select class="form-control" name="class">
-                        <option value="CS17B">CS17B</option>
+
+                        <?php foreach($_SESSION['class'] as $item): ?>
+                        <option value="<?php echo $item['Class']; ?>"><?php echo $item['Class']; ?></option>
+                        <?php endforeach; ?>
+
                     </select>
 
                 </div>

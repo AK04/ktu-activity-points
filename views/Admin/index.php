@@ -32,7 +32,7 @@
     <div class="row">
 
         <div class="col-12 cent">
-            <a class="btn btn-primary btn-lg" style="width: 200px; margin-right: 5px;" href="">Run Queries</a>
+            <a class="btn btn-primary btn-lg" style="width: 200px; margin-right: 5px;" href="<?php echo ROOTPATH; ?>?controller=admin&action=queries">Run Queries</a>
             <a class="btn btn-primary btn-lg" style="width: 200px;" href="">User Creation</a>
         </div>
 

@@ -4,7 +4,12 @@ class LoginModel extends Model{
 
 	public function Index() {
 
-		$post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);		
+		$post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);	
+
+		$this->query('SELECT DISTINCT Class FROM users GROUP BY Class;');
+		$rows = $this->resultSet();
+
+		$_SESSION['class'] = $rows;
 
 		if($post['submit']) {
 
@@ -34,7 +39,8 @@ class LoginModel extends Model{
 				$_SESSION['user'] = $row['username'];
 
 				if ($_SESSION['user'] == 'admin') {
-					$_SESSION['class'] = $post['class'];
+					unset($_SESSION['class']);
+					$_SESSION['class'] = $post['class'];					
 					header('Location: '.ROOT_URL.'?controller=admin');
 				} 
 				else
@@ -49,6 +55,7 @@ class LoginModel extends Model{
 		}
 
 		return;
+
 	}
 
 }

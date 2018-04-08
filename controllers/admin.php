@@ -53,4 +53,12 @@ class Admin extends Controller {
 
 	}
 
+	protected function queries() {
+
+		$viewmodel = new AdminModel();
+
+		$this->returnView($viewmodel->queries(), true);
+
+	}
+
 }

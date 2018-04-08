@@ -48,4 +48,12 @@ class AdminModel extends Model {
 
 	}
 
+	public function queries() {
+
+
+		return;
+
+
+	}
+
 }
