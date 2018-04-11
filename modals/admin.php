@@ -48,6 +48,21 @@ class AdminModel extends Model {
 
 	}
 
+	public function addComments() {
+
+		if ($_SESSION['user'] != 'admin') {
+			header('Location: '.ROOT_URL);
+		}
+
+		$this->query('UPDATE `PointsTable` SET `Comments` = :comments WHERE `PointsTable`.`No` = :no;');
+		$this->bind(':comments',$_GET['comments']);
+		$this->bind(':no',$_GET['slno']);
+		$this->execute();
+
+		header('Location: '.ROOT_URL.'?controller=admin&action=pending');
+
+	}
+
 	public function queries() {
 
 

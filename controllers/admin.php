@@ -53,6 +53,14 @@ class Admin extends Controller {
 
 	}
 
+	protected function addComments() {
+
+		$viewmodel = new AdminModel();
+
+		$this->returnView($viewmodel->addComments(), true);
+
+	}
+
 	protected function queries() {
 
 		$viewmodel = new AdminModel();
