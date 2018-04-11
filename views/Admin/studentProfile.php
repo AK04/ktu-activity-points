@@ -15,6 +15,7 @@
                 <th scope="col">DOCUMENTS</th>
                 <th scope="col">ST<a href="https://github.com/Joe1912" target="_blank" style="color: white;">A</a>TUS</th>
                 <th scope="col">D<a href="https://github.com/alfvj17" target="_blank" style="color: white;">A</a>TE <a href="https://github.com/Nikhil713" target="_blank" style="color: white;">A</a>DDED</th>
+                <th scope="col">COMMENTS</th>
             </tr>
         </thead>
 
@@ -41,6 +42,13 @@
                 ?></th>
 
                 <th><?php echo $item['AddDate']; ?></th>
+                <th><?php echo $item['AddDate']; ?></th>
+                <th><?php 
+                    if ($item['Comments'] == null) 
+                         echo "No comments";                    
+                    else
+                        echo $item['Comments'];
+                ?></th>
             </tr>
 
             <?php endforeach; ?>
