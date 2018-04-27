@@ -20,3 +20,28 @@
   align-items: center;
   justify-content: center;  
 }
+
+.card {
+  max-width: 400px;
+  margin: auto;
+  padding: 30px 20px;
+}
+
+.loginBtn {
+    width: 200px;
+    display: table;
+    margin: auto;
+}
+
+.lead {
+  text-align: center;
+}
+
+hr {
+  margin: 15px 20% 10px 20%;
+  border: 1px solid grey;
+}
+
+.header {
+  margin-bottom: 10px;
+}
