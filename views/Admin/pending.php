@@ -38,7 +38,7 @@
                 <th><?php echo $item['User']; ?></th>
 
                 <th>                
-                    <?php if($item['Comments'] == null) : ?>
+                    <?php if($item['Comments'] == null || $item['Comments'] == null) : ?>
                         <form method="get" action="<?php echo ROOTPATH; ?>">
                             <input type="text" name="comments">
                             <input type="hidden" name="slno" value="<?php echo $item['No']; ?>">
@@ -47,7 +47,7 @@
                             <input class="btn btn-primary btn-sm" type="submit" name="add" value="Add">
                         </form>                    
                     <?php endif; ?>
-                    <?php if($item['Comments'] !== null) : ?>
+                    <?php if($item['Comments'] !== null && $item['Comments'] !== "") : ?>
                         <form method="get" action="<?php echo ROOTPATH; ?>">
                             <?php echo $item['Comments']; ?><br>
                             <input type="text" name="comments">

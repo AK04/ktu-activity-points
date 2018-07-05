@@ -3,8 +3,8 @@
 // Database parameters
 
 define("DB_HOST","localhost");
-define("DB_USER","root");
-define("DB_PASS","root");
+define("DB_USER","phpmyadmin");
+define("DB_PASS","kottaram");
 define("DB_NAME","ktu");
 
 // URL
