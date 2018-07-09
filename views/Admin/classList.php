@@ -1,5 +1,6 @@
 <div class="jumbotron">
 	
+    <a href="<?php echo ROOTPATH; ?>?controller=admin" class="btn btn-outline-info" style="float: left; display: inline-block;">Back</a>
 	<h1 style="text-align: center;">Class List - <?php echo $_SESSION['class']; ?> </h1>
 
 	<br>

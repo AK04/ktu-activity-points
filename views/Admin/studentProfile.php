@@ -1,5 +1,6 @@
 <div class="jumbotron">
 	
+    <a href="<?php echo ROOTPATH; ?>?controller=admin" class="btn btn-outline-info" style="float: left; display: inline-block;">Back</a>
 	<h1 style="text-align: center;">Student Profile - <?php echo $_GET['student']; ?> </h1>
 
 	<br>
@@ -41,7 +42,6 @@
 
                 ?></th>
 
-                <th><?php echo $item['AddDate']; ?></th>
                 <th><?php echo $item['AddDate']; ?></th>
                 <th><?php 
                     if ($item['Comments'] == null) 
