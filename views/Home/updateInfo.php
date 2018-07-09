@@ -44,7 +44,6 @@
             <input class="btn btn-primary" type="submit" name="submit" value="Update"> 
             <a class="btn btn-danger" href="<?php echo ROOTPATH; ?>?controller=home" >Cancel</a>
 
-
 		</form>
 
 	</div>
