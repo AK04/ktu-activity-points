@@ -35,6 +35,7 @@ CREATE TABLE `users` (
   `Id` int(11) NOT NULL,
   `username` varchar(20) NOT NULL,
   `password` varchar(20) NOT NULL,
+  `Admin` tinyint(11) NOT NULL,
   `TotalPoints` int(11) DEFAULT NULL,
   `RegisterNo` varchar(10) DEFAULT NULL,
   `RollNo` varchar(8) DEFAULT NULL,
