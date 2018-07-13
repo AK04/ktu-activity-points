@@ -4,7 +4,7 @@ class Admin extends Controller {
 
 	protected function Index() {
 
-		if(!isset($_SESSION['is_logged_in']) || $_SESSION['user'] != 'admin'){
+		if(!isset($_SESSION['is_logged_in']) || $_SESSION['admin'] != 1){
 			header('Location: '.ROOT_URL);
 		}
 
