@@ -4,18 +4,30 @@ class HomeModel extends Model {
 
 	public function Index(){
 
+
+		// For session variable requirements
 		$this->query('SELECT * FROM PointsTable WHERE User = :username ORDER BY AddDate DESC;');
 		$this->bind(':username', $_SESSION['user']);
 		$rows = $this->resultSet();
 
+		// To check if student updated information or not
 		$this->query('SELECT InfoUpdate FROM users WHERE username = :username;');
 		$this->bind(':username', $_SESSION['user']);
 		$info = $this->resultSet();
-
+	
+		// Gets total points of student
+		$this->query('SELECT SUM(Points) as Points FROM PointsTable WHERE user = :username AND Approved = 1;');
+		$this->bind(':username', $_SESSION['user']);
+		$userPoints = $this->single();
+		
+		// Update points in user table
+		$this->query('UPDATE users SET TotalPoints = :points WHERE username = :username;');
+		$this->bind(':username', $_SESSION['user']);
+		$this->bind(':points', (int)$userPoints['Points']);
 
 		if($info[0]['InfoUpdate'] == '0' || $info[0]['InfoUpdate'] == null ) {
 			Messages::setMsg('Update your information for claiming activity points', 'error');
-				$_SESSION['shouldUpdate'] = true;
+			$_SESSION['shouldUpdate'] = true;
 		}
 		else
 			$_SESSION['shouldUpdate'] = false;

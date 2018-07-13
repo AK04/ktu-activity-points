@@ -28,7 +28,7 @@ class LoginModel extends Model{
 
 				if ($row['Admin'] == 1) {
 					unset($_SESSION['class']);
-					$_SESSION['class'] = $post['class'];
+					$_SESSION['class'] = $row['Class'];
 					$_SESSION['admin'] = 1;					
 					header('Location: '.ROOT_URL.'?controller=admin');
 				} 
