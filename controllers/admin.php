@@ -69,6 +69,14 @@ class Admin extends Controller {
 
 	}
 
+	protected function resultPage() {
+
+		$viewmodel = new AdminModel();
+
+		$this->returnView($viewmodel->resultPage(), true);
+
+	}
+
 	protected function userCreation() {
 
 		$viewmodel = new AdminModel();

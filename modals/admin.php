@@ -8,7 +8,7 @@ class AdminModel extends Model {
 
 	public function changeStatus() {
 
-		if ($_SESSION['user'] != 'admin') {
+		if ($_SESSION['admin'] != 1) {
 			header('Location: '.ROOT_URL);
 		}
 
@@ -50,7 +50,7 @@ class AdminModel extends Model {
 
 	public function addComments() {
 
-		if ($_SESSION['user'] != 'admin') {
+		if ($_SESSION['admin'] != 1) {
 			header('Location: '.ROOT_URL);
 		}
 
@@ -66,6 +66,34 @@ class AdminModel extends Model {
 	public function queries() {
 
 
+		$post  = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+		if($post['submit'] == 'Search') {
+
+			header('Location: '.ROOT_URL.'?controller=admin&action=resultPage&option=1&limit='. $post['limit']);
+
+		}
+
+
+
+		return;
+
+
+	}
+
+	public function resultPage() {
+
+		if($_GET['option'] == 1) {
+
+			$this->query('SELECT * FROM users WHERE TotalPoints < :limit AND Class = :class AND Admin = 0;');
+			$this->bind(':limit', (int)$_GET['limit']);
+			$this->bind(':class', $_SESSION['class']);
+			$rows = $this->resultSet();
+
+			return $rows;
+
+		}
+
 		return;
 
 
@@ -73,7 +101,7 @@ class AdminModel extends Model {
 
 	public function userCreation() {
 
-		if ($_SESSION['user'] != 'admin') {
+		if ($_SESSION['admin'] != 1) {
 			header('Location: '.ROOT_URL);
 		}
 
