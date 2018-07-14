@@ -1,8 +1,10 @@
 <div class="jumbotron">
+
+	<!-- For results depending on points -->
 	
 	<?php if($_GET['option'] == 1) : ?>
 
-	<a href="<?php echo ROOTPATH; ?>?controller=admin" class="btn btn-outline-info" style="float: left; display: inline-block;">Back</a>
+	<a href="<?php echo ROOTPATH; ?>?controller=admin&action=queries" class="btn btn-outline-info" style="float: left; display: inline-block;">Back</a>
 	<h1 style="text-align: center;">Students with points less than <?php echo $_GET['limit']; ?> </h1>
 
 	<br>
@@ -37,6 +39,13 @@
         </tbody>
 
     </table>
+
+	<?php endif; ?>
+
+	<!-- For results depending on points -->
+
+	<?php if($_GET['option'] == 2) : ?>
+
 
 	<?php endif; ?>
 

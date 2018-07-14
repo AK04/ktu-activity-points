@@ -68,9 +68,16 @@ class AdminModel extends Model {
 
 		$post  = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
-		if($post['submit'] == 'Search') {
+		if($post['submit'] == 'Check') {
 
 			header('Location: '.ROOT_URL.'?controller=admin&action=resultPage&option=1&limit='. $post['limit']);
+
+		}
+
+		if($post['submit'] == 'Search') {
+
+
+			header('Location: '.ROOT_URL.'?controller=admin&action=resultPage&option=2&activity='. $post['activity']);
 
 		}
 
@@ -88,6 +95,16 @@ class AdminModel extends Model {
 			$this->query('SELECT * FROM users WHERE TotalPoints < :limit AND Class = :class AND Admin = 0;');
 			$this->bind(':limit', (int)$_GET['limit']);
 			$this->bind(':class', $_SESSION['class']);
+			$rows = $this->resultSet();
+
+			return $rows;
+
+		}
+
+		if($_GET['option'] == 2) {
+
+			$this->query('SELECT * FROM PointsTable WHERE Activity = :activity;');
+			$this->bind(':activity', $_GET['activity']);
 			$rows = $this->resultSet();
 
 			return $rows;
