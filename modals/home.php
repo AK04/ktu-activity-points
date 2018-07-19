@@ -14,16 +14,6 @@ class HomeModel extends Model {
 		$this->query('SELECT InfoUpdate FROM users WHERE username = :username;');
 		$this->bind(':username', $_SESSION['user']);
 		$info = $this->resultSet();
-	
-		// Gets total points of student
-		$this->query('SELECT SUM(Points) as Points FROM PointsTable WHERE user = :username AND Approved = 1;');
-		$this->bind(':username', $_SESSION['user']);
-		$userPoints = $this->single();
-		
-		// Update points in user table
-		$this->query('UPDATE users SET TotalPoints = :points WHERE username = :username;');
-		$this->bind(':username', $_SESSION['user']);
-		$this->bind(':points', (int)$userPoints['Points']);
 
 		if($info[0]['InfoUpdate'] == '0' || $info[0]['InfoUpdate'] == null ) {
 			Messages::setMsg('Update your information for claiming activity points', 'error');

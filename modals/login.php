@@ -40,7 +40,7 @@ class LoginModel extends Model{
 
 				if ($admin == 1) {
 					unset($_SESSION['class']);
-					$_SESSION['Class'] = $row['Class'];
+					$_SESSION['class'] = $row['Class'];
 					$_SESSION['admin'] = 1;					
 					header('Location: '.ROOT_URL.'?controller=admin');
 				} 

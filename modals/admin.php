@@ -12,9 +12,26 @@ class AdminModel extends Model {
 			header('Location: '.ROOT_URL);
 		}
 
+		// Change Approved status for Activity
 		$this->query('UPDATE `PointsTable` SET `Approved` = :change WHERE `PointsTable`.`No` = :no;');
 		$this->bind(':change',$_GET['change']);
 		$this->bind(':no',$_GET['no']);
+		$this->execute();
+
+		// Get student User Name
+		$this->query('SELECT User FROM PointsTable WHERE No = :no;');
+		$this->bind(':no',$_GET['no']);
+		$user = $this->single();
+
+		// Gets total points of student
+		$this->query('SELECT SUM(Points) as Points FROM PointsTable WHERE User = :username AND Approved = 1;');
+		$this->bind(':username', $user['User']);
+		$userPoints = $this->single();
+		
+		// Update points in user table
+		$this->query('UPDATE users SET TotalPoints = :points WHERE Username = :username;');
+		$this->bind(':username', $user['User']);
+		$this->bind(':points', (int)$userPoints['Points']);
 		$this->execute();
 
 		header('Location: '.ROOT_URL.'?controller=admin&action=pending');
@@ -31,7 +48,7 @@ class AdminModel extends Model {
 
 	public function classList() {
 
-		$this->query('SELECT * FROM users WHERE users.class = :class AND username <> "admin";');
+		$this->query('SELECT * FROM users WHERE Class = :class;');
 		$this->bind(':class', $_SESSION['class']);
 		$rows = $this->resultSet();
 		return $rows;

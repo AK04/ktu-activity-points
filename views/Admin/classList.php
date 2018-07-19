@@ -24,7 +24,7 @@
 
             <tr>
                 <th><?php echo $i ?></th>
-                <th><a href="<?php echo ROOTPATH; ?>?controller=admin&action=studentProfile&student=<?php echo $item['username']; ?>"><?php echo $item['username']; ?></a></th>
+                <th><a href="<?php echo ROOTPATH; ?>?controller=admin&action=studentProfile&student=<?php echo $item['Username']; ?>"><?php echo $item['Username']; ?></a></th>
                 <th><?php echo $item['TotalPoints']; ?></th>
                 <th><?php echo $item['RegisterNo']; ?></th>
                 <th><?php echo $item['AdmNo']; ?></th>
