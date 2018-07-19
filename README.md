@@ -33,9 +33,8 @@ ALTER TABLE `PointsTable`
 
 CREATE TABLE `users` (
   `Id` int(11) NOT NULL,
-  `username` varchar(20) NOT NULL,
-  `password` varchar(20) NOT NULL,
-  `Admin` tinyint(11) NOT NULL,
+  `Username` varchar(20) NOT NULL,
+  `Password` varchar(20) NOT NULL,
   `TotalPoints` int(11) DEFAULT NULL,
   `RegisterNo` varchar(10) DEFAULT NULL,
   `RollNo` varchar(8) DEFAULT NULL,
@@ -53,9 +52,17 @@ ALTER TABLE `users`
 ALTER TABLE `users`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 
-INSERT INTO `users` (`Id`, `username`, `password`) VALUES
-(1, 'user', 'pass'),
-(2, 'admin', 'admin');
+INSERT INTO `users` (`Username`, `Password`, `Class`) VALUES ('user', 'pass', 'CS17B');
+
+
+CREATE TABLE `Admins` (
+  `Username` varchar(6) NOT NULL,
+  `Password` text NOT NULL,
+  `Class` varchar(5) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO `Admins` (`Username`, `Password`, `Class`) VALUES
+('CS17B0', 'CS17B0', 'CS17B');
 
 4. In assets folder, create a folder named 'Documents' (D must be capital). Then try 'sudo chmod 777 Documents' while in the assets folder.
 
