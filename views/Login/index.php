@@ -29,15 +29,10 @@
                 
                 <div class="form-group">
                     
-                    <select class="form-control" name="class">
+                    <select class="form-control" name="userType">
                         
-                        <option value="" disabled selected>Select class..</option>
-                        
-                        <?php foreach($_SESSION['class'] as $item): ?>
-                        
-                        <option value="<?php echo $item['Class']; ?>"><?php echo $item['Class']; ?></option>
-                        
-                        <?php endforeach; ?>
+                        <option value="student" selected> Student </option>
+                        <option value="staff"> Staff </option>
                         
                     </select>
                     

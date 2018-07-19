@@ -6,29 +6,41 @@ class LoginModel extends Model{
 
 		$post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);	
 
-		$this->query('SELECT DISTINCT Class FROM users GROUP BY Class;');
-		$rows = $this->resultSet();
-
-		$_SESSION['class'] = $rows;
-
-
 		if($post['submit']) {
 
-			$this->query('SELECT * FROM users WHERE username = :username AND password = :password;');
-			$this->bind(':username', $post['username']);
-			$this->bind(':password', $post['password']);
-			
-			$row = $this->single();
+			if ( $post['userType'] == 'student' ) {
+
+				$this->query('SELECT * FROM users WHERE Username = :username AND Password = :password;');
+				$this->bind(':username', $post['username']);
+				$this->bind(':password', $post['password']);
+				
+				$row = $this->single();
+
+				$admin = 0;
+
+			}
+
+			else {
+
+				$this->query('SELECT * FROM Admins WHERE Username = :username AND Password = :password;');
+				$this->bind(':username', $post['username']);
+				$this->bind(':password', $post['password']);
+				
+				$row = $this->single();
+
+				$admin = 1;
+
+			}
 
 
 			if($row){
 
 				$_SESSION['is_logged_in'] = true;
-				$_SESSION['user'] = $row['username'];
+				$_SESSION['user'] = $row['Username'];
 
-				if ($row['Admin'] == 1) {
+				if ($admin == 1) {
 					unset($_SESSION['class']);
-					$_SESSION['class'] = $row['Class'];
+					$_SESSION['Class'] = $row['Class'];
 					$_SESSION['admin'] = 1;					
 					header('Location: '.ROOT_URL.'?controller=admin');
 				} 
