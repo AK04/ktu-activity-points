@@ -535,7 +535,7 @@ class AddModel extends Model {
 
 			if ($uploadOk != 0) {
 
-				$this->query('INSERT INTO PointsTable (Activity, Level, Prize, Involvement, Notes, Points, Document, Approved, User) VALUES (:activity, :level, :prize, :involvement, :notes, :points, :document, :approval, :user)');
+				$this->query('INSERT INTO PointsTable (Activity, Level, Prize, Involvement, Notes, Points, Document, Approved, Year, User) VALUES (:activity, :level, :prize, :involvement, :notes, :points, :document, :approval, :year, :user)');
 
 				$this->bind(':activity', return_activity($post['activity'],$post['prize']));
 				$this->bind(':level', $post['level']);
@@ -545,6 +545,7 @@ class AddModel extends Model {
 				$this->bind(':points', calculate_points($post));
 				$this->bind(':document', $file_link); 
 				$this->bind(':approval', 0);
+				$this->bind(':year', $post['year']);
 				$this->bind(':user', $_SESSION['user']);
 				$this->execute();
 

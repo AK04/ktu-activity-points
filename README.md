@@ -20,6 +20,7 @@ CREATE TABLE `PointsTable` (
   `Document` text,
   `Approved` tinyint(1) DEFAULT NULL,
   `Comments` text,
+  `Year` int(11) NOT NULL,
   `AddDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `User` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;

@@ -104,6 +104,13 @@
 
             <div class="form-group">
 
+                <label class="col-form-label">Year of completion:</label>
+                <input type="text" name="year" class="form-control">
+
+            </div>
+
+            <div class="form-group">
+
                 <label class="col-form-label">Notes:</label>
                 <input type="text" name="notes" class="form-control">
 
