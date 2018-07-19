@@ -2,7 +2,7 @@
     
     <div class="header text-center">
         
-        <h2><b>KTU ACIVITY POINTS <br>MEC</b></h2>
+        <h2><b>KTU ACTIVITY POINTS(BETA) <br>MEC</b></h2>
         
         <hr>
         
