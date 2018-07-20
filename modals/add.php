@@ -516,7 +516,7 @@ class AddModel extends Model {
 			    $uploadOk = 0;
 			}
 
-			if($post['year'] == "" || strlen($post) != 4) {
+			if($post['year'] == "" || strlen($post['year']) != 4) {
 				Messages::setMsg("Input proper year", 'error');
 				return;
 			}
