@@ -491,34 +491,39 @@ class AddModel extends Model {
 			$check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
 
 			if (file_exists($target_file)) {
-				die("rename");
 				Messages::setMsg("Please rename your file", 'error');
+				return;
 			    $uploadOk = 0;
 			}
 
 		    if($check !== false) {
 		        $uploadOk = 1;
 		    } else {
-		    	die("not image");
 		        Messages::setMsg("File is not an image", 'error');
+		        return;
 		        $uploadOk = 0;
 		    }
 
-		    if ($_FILES["fileToUpload"]["size"] > 500000) {
+		    if ($_FILES["fileToUpload"]["size"] > 1000000) {
 		    	Messages::setMsg("Sorry, your file is too large", 'error');
-		    	die("large");
+		    	return;
 			    $uploadOk = 0;
 			}
 
-			if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-			&& $imageFileType != "gif" ) {
-				Messages::setMsg("Sorry, only JPG, JPEG, PNG & GIF files are allowed.", 'error');
-				die("not image 2");
+			if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" ) {
+				Messages::setMsg("Sorry, only JPG, JPEG & PNG files are allowed.", 'error');
+				return;
 			    $uploadOk = 0;
+			}
+
+			if($post['year'] == "" || strlen($post) != 4) {
+				Messages::setMsg("Input proper year", 'error');
+				return;
 			}
 			
 			if ($uploadOk == 0) {
 			    Messages::setMsg("Sorry, your file cannot be uploaded", 'error');
+			    return;
 			} 
 
 			else {
@@ -530,6 +535,7 @@ class AddModel extends Model {
 			    else {			    	
 			    	Messages::setMsg("Sorry, there was an error uploading your file", 'error');
 			    	$uploadOk = 0;
+			    	return;
 			    }
 			}
 
@@ -554,6 +560,7 @@ class AddModel extends Model {
 				}
 				else {
 					Messages::setMsg("Database Error", 'error');
+					return;
 				}
 
 			}

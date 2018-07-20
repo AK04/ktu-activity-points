@@ -46,6 +46,45 @@
 
 	<?php if($_GET['option'] == 2) : ?>
 
+        <a href="<?php echo ROOTPATH; ?>?controller=admin&action=queries" class="btn btn-outline-info" style="float: left; display: inline-block;">Back</a>
+        <h1 style="text-align: center;">Activities during <?php echo $_GET['year']; ?> </h1>
+
+        <br>       
+
+        <table class="table table-striped" style="text-align: center;">
+
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">ACTIVITY</th>
+                    <th scope="col">POINTS</th>
+                    <th scope="col">DOCUMENT</th>
+                    <th scope="col">NOTES</th>
+                    <th scope="col">USER</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                <?php $i = 0; foreach($viewmodel as $item): $i += 1;  ?>
+
+                <tr>
+                    <th><?php echo $i ?></th>
+                    <th><?php echo $item['Activity']; ?></th>
+                    <th><?php echo $item['Points']; ?></th>
+
+                    <th>
+                        <a class="btn btn-success" target="_blank" href="<?php echo ROOT_URL.$item['Document'];?>">View</a>
+                    </th>
+                    <th><?php echo $item['Notes']; ?></th>                
+                    <th><?php echo $item['User']; ?></th>
+                </tr>
+
+                <?php endforeach; ?>
+
+            </tbody>
+
+        </table>
 
 	<?php endif; ?>
 

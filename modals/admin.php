@@ -91,14 +91,19 @@ class AdminModel extends Model {
 
 		}
 
-		if($post['submit'] == 'Search') {
+		if($post['submit'] == 'Find') {
 
 
-			header('Location: '.ROOT_URL.'?controller=admin&action=resultPage&option=2&activity='. $post['activity']);
+			header('Location: '.ROOT_URL.'?controller=admin&action=resultPage&option=2&year='. $post['year']);
 
 		}
 
+		if($post['submit'] == 'Search') {
 
+
+			header('Location: '.ROOT_URL.'?controller=admin&action=resultPage&option=3&activity='. $post['activity']);
+
+		}
 
 		return;
 
@@ -119,6 +124,17 @@ class AdminModel extends Model {
 		}
 
 		if($_GET['option'] == 2) {
+
+			$this->query('SELECT * FROM PointsTable, users WHERE PointsTable.User = users.Username AND PointsTable.Year = :year AND users.Class = :class;');
+			$this->bind(':year', $_GET['year']);
+			$this->bind(':class', $_SESSION['class']);
+			$rows = $this->resultSet();
+
+			return $rows;
+
+		}
+
+		if($_GET['option'] == 3) {
 
 			$this->query('SELECT * FROM PointsTable WHERE Activity = :activity;');
 			$this->bind(':activity', $_GET['activity']);

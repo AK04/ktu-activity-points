@@ -1,7 +1,7 @@
 <div class="jumbotron">
 
 	<a href="<?php echo ROOTPATH; ?>?controller=admin" class="btn btn-outline-info" style="float: left; display: inline-block;">Back</a>
-	<h1 style="text-align: center;">Run Queries</h1>
+	<h1 style="text-align: center;">Reports</h1>
 
 	<br>
     <br>
@@ -22,6 +22,23 @@
 	</form>
 
 	<br>
+
+    <h2> Check for students yearwise </h2>
+
+    <form method="post" action="<?php $_SERVER['PHP_SELF']; ?>">
+
+        <div class="form-group">
+
+            <label class="col-form-label">Year: </label>
+            <input type="text" name="year" class="form-control">
+        </div>
+
+
+        <input class="btn btn-primary" type="submit" name="submit" value="Find">
+
+    </form>
+
+    <br>
 
 	<h2>Check for students according to activity</h2>
 
