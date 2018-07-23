@@ -114,7 +114,7 @@ class AdminModel extends Model {
 
 		if($_GET['option'] == 1) {
 
-			$this->query('SELECT * FROM users WHERE TotalPoints < :limit AND Class = :class AND Admin = 0;');
+			$this->query('SELECT * FROM users WHERE TotalPoints < :limit AND Class = :class ;');
 			$this->bind(':limit', (int)$_GET['limit']);
 			$this->bind(':class', $_SESSION['class']);
 			$rows = $this->resultSet();
@@ -170,13 +170,12 @@ class AdminModel extends Model {
 
 			for ($i = 1; $i <= (int)$post['number'] ; $i++) { 
 
-				$this->query('INSERT INTO users (username, password, Admin, class) VALUES (:username , :password, :Admin, :Class); ');
+				$this->query('INSERT INTO users (username, password, class) VALUES (:username , :password, :Class); ');
 
 				$namesake = $_SESSION['class'] . (string)$i;
 
 				$this->bind(':username', $namesake);
 				$this->bind(':password', $namesake);
-				$this->bind(':Admin', 0);
 				$this->bind(':Class', $_SESSION['class']);
 				$this->execute();
 
