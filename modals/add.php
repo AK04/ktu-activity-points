@@ -488,7 +488,9 @@ class AddModel extends Model {
 			$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
 			// Check if image file is a actual image or fake image
-			$check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+			$file_type =$_FILES['fileToUpload']['type'];
+
+			//$check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
 
 			if (file_exists($target_file)) {
 				Messages::setMsg("Please rename your file", 'error');
@@ -496,7 +498,7 @@ class AddModel extends Model {
 			    $uploadOk = 0;
 			}
 
-		    if($check !== false) {
+		    if($file_type !== false) {
 		        $uploadOk = 1;
 		    } else {
 		        Messages::setMsg("File is not an image", 'error');
@@ -510,16 +512,21 @@ class AddModel extends Model {
 			    $uploadOk = 0;
 			}
 
-			if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" ) {
+			if($file_type != "application/pdf" && $file_type != "image/png" && $file_type != "image/jpeg" && $file_type != "image/jpg") {
 				Messages::setMsg("Sorry, only JPG, JPEG & PNG files are allowed.", 'error');
 				return;
 			    $uploadOk = 0;
 			}
 
-			if($post['year'] == "" || strlen($post['year']) != 4) {
-				Messages::setMsg("Input proper year", 'error');
+			/*
+
+			if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "pdf") {
+				Messages::setMsg("Sorry, only JPG, JPEG & PNG files are allowed.", 'error');
 				return;
+			    $uploadOk = 0;
 			}
+
+			*/
 			
 			if ($uploadOk == 0) {
 			    Messages::setMsg("Sorry, your file cannot be uploaded", 'error');

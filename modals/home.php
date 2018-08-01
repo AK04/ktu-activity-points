@@ -62,12 +62,12 @@ class HomeModel extends Model {
 				return;
 			}
 
-			$this->query('UPDATE `users` SET `RegisterNo` = :register, `RollNo` = :rollno, `AdmNo` = :admno, `Class` = :class, `InfoUpdate` = :infoupdate WHERE `users`.`username` = :user;');
+			$this->query('UPDATE `users` SET `RegisterNo` = :register, `RollNo` = :rollno, `AdmNo` = :admno, `InfoUpdate` = :infoupdate WHERE `users`.`username` = :user;');
 
 			$this->bind(':register', $post['register']);
 			$this->bind(':rollno', $post['rollno']);
 			$this->bind(':admno', $post['admno']);
-			$this->bind(':class', $post['class']);
+			//$this->bind(':class', $post['class']);
 			$this->bind(':infoupdate', true);
 			$this->bind(':user', $_SESSION['user']);
 			$this->execute();

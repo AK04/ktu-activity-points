@@ -33,6 +33,7 @@
 
             </div>
 
+            <!--
             <div class="form-group">
 
                 <label class="col-form-label">Class:</label>
@@ -40,7 +41,7 @@
                 <small class="text-muted">Eg: CS15B, EE16A, etc. (Branch followed by the year of joining and Division. For EE and EB - division is A.)</small>
 
             </div>
-
+            -->
             <input class="btn btn-primary" type="submit" name="submit" value="Update"> 
             <a class="btn btn-danger" href="<?php echo ROOTPATH; ?>?controller=home" >Cancel</a>
 
