@@ -287,7 +287,7 @@ function calculate_points($info) {
 
 }
 
-function return_activity($activity, $prize) {
+function return_activity($activity) {
 
 	switch ($activity) {
 
@@ -298,85 +298,19 @@ function return_activity($activity, $prize) {
 			return "N S S";
 
 		case '3':
-			switch ($prize) {
-				case '1':
-					return "Sports - First Prize";
-					break;
-				case '2':
-					return "Sports - Second Prize";
-					break;
-				case '3':
-					return "Sports - Third Prize";
-					break;				
-				default:
-					return "Sports - Participant";
-					break;
-			}	
+			return "Sports";
 
 		case '4':
-			switch ($prize) {
-				case '1':
-					return "Games - First Prize";
-					break;
-				case '2':
-					return "Games - Second Prize";
-					break;
-				case '3':
-					return "Games - Third Prize";
-					break;				
-				default:
-					return "Games - Participant";
-					break;
-			}
+			return "Games";
 
 		case '5':
-			switch ($prize) {
-				case '1':
-					return "Music - First Prize";
-					break;
-				case '2':
-					return "Music - Second Prize";
-					break;
-				case '3':
-					return "Music - Third Prize";
-					break;				
-				default:
-					return "Music - Participant";
-					break;
-			}
+			return "Music";
 
 		case '6':
-			switch ($prize) {
-				case '1':
-					return "Performing Arts - First Prize";
-					break;
-				case '2':
-					return "Performing Arts - Second Prize";
-					break;
-				case '3':
-					return "Performing Arts - Third Prize";
-					break;				
-				default:
-					return "Performing Arts - Participant";
-					break;
-			}
+			return "Performing Arts";
 
 		case '7':
-			switch ($prize) {
-				case '1':
-					return "Literary arts - First Prize";
-					break;
-				case '2':
-					return "Literary arts - Second Prize";
-					break;
-				case '3':
-					return "Literary arts - Third Prize";
-					break;				
-				default:
-					return "Literary arts - Participant";
-					break;
-			}
-
+			return "Literary arts";
 
 		case '8':
 			return "Tech Fest, Tech Quiz";
@@ -550,7 +484,7 @@ class AddModel extends Model {
 
 				$this->query('INSERT INTO PointsTable (Activity, Level, Prize, Involvement, Notes, Points, Document, Approved, Year, User) VALUES (:activity, :level, :prize, :involvement, :notes, :points, :document, :approval, :year, :user)');
 
-				$this->bind(':activity', return_activity($post['activity'],$post['prize']));
+				$this->bind(':activity', return_activity($post['activity']);
 				$this->bind(':level', $post['level']);
 				$this->bind(':prize', $post['prize']);
 				$this->bind(':involvement', $post['involvement']);

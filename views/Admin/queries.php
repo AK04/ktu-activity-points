@@ -42,10 +42,6 @@
 
 	<h2>Check for students according to activity</h2>
 
-	<p>Not finished yet</p>
-
-	<!-- 
-
 	<form method="post" action="<?php $_SERVER['PHP_SELF']; ?>">
 
 		<div class="form-group">
@@ -96,7 +92,5 @@
         <input class="btn btn-primary" type="submit" name="submit" value="Search">
 
 	</form>
-
-	-->
 
 </div>
