@@ -29,8 +29,15 @@
 
         <div class="form-group">
 
-            <label class="col-form-label">Year: </label>
-            <input type="text" name="year" class="form-control">
+            <label class="col-form-label">Year of completion:</label>
+            
+            <select class="form-control" name="year">
+                <option value="1">First Year</option>
+                <option value="2">Second Year</option>
+                <option value="3">Third Year</option>
+                <option value="4">Fourth Year</option>
+            </select>
+
         </div>
 
 

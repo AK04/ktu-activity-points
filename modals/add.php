@@ -484,7 +484,7 @@ class AddModel extends Model {
 
 				$this->query('INSERT INTO PointsTable (Activity, Level, Prize, Involvement, Notes, Points, Document, Approved, Year, User) VALUES (:activity, :level, :prize, :involvement, :notes, :points, :document, :approval, :year, :user)');
 
-				$this->bind(':activity', return_activity($post['activity']);
+				$this->bind(':activity', return_activity($post['activity']));
 				$this->bind(':level', $post['level']);
 				$this->bind(':prize', $post['prize']);
 				$this->bind(':involvement', $post['involvement']);

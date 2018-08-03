@@ -47,7 +47,16 @@
 	<?php if($_GET['option'] == 2) : ?>
 
         <a href="<?php echo ROOTPATH; ?>?controller=admin&action=queries" class="btn btn-outline-info" style="float: left; display: inline-block;">Back</a>
-        <h1 style="text-align: center;">Activities during <?php echo $_GET['year']; ?> </h1>
+        <h1 style="text-align: center;">Activities during <?php echo $_GET['year']; 
+            if ( $_GET['year'] == 1) 
+                echo "st";
+            else if ( $_GET['year'] == 2) 
+                echo "nd";
+            else if ( $_GET['year'] == 3)
+                echo "rd";
+            else
+                echo "th";
+        ?> year </h1>
 
         <br>       
 
