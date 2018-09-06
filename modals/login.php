@@ -36,9 +36,9 @@ class LoginModel extends Model{
 			if($row){
 
 				$_SESSION['is_logged_in'] = true;
-				$_SESSION['user'] = $row['username'];
 
 				if ($admin == 1) {
+					$_SESSION['user'] = $row['username'];
 					unset($_SESSION['class']);
 					$_SESSION['class'] = $row['Class'];
 					$_SESSION['admin'] = 1;					
@@ -46,6 +46,7 @@ class LoginModel extends Model{
 				} 
 
 				else {
+					$_SESSION['user'] = $row['Username'];
 					header('Location: '.ROOT_URL.'?controller=home');
 				}
 

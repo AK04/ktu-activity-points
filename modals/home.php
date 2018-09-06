@@ -57,11 +57,11 @@ class HomeModel extends Model {
 				return;
 			}
 
-			if(strlen($post['class']) != 5) {
+/*			if(strlen($post['class']) != 5) {
 				Messages::setMsg("Invalid Class information", 'error');
 				return;
 			}
-
+*/
 			$this->query('UPDATE `users` SET `RegisterNo` = :register, `RollNo` = :rollno, `AdmNo` = :admno, `InfoUpdate` = :infoupdate WHERE `users`.`username` = :user;');
 
 			$this->bind(':register', $post['register']);
