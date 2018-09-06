@@ -10,7 +10,7 @@ class LoginModel extends Model{
 
 			if ( $post['userType'] == 'student' ) {
 
-				$this->query('SELECT * FROM users WHERE Username = :username AND Password = :password;');
+				$this->query('SELECT * FROM users WHERE username = :username AND password = :password;');
 				$this->bind(':username', $post['username']);
 				$this->bind(':password', $post['password']);
 				
@@ -22,7 +22,7 @@ class LoginModel extends Model{
 
 			else {
 
-				$this->query('SELECT * FROM Admins WHERE Username = :username AND Password = :password;');
+				$this->query('SELECT * FROM Admins WHERE username = :username AND password = :password;');
 				$this->bind(':username', $post['username']);
 				$this->bind(':password', $post['password']);
 				
@@ -36,7 +36,7 @@ class LoginModel extends Model{
 			if($row){
 
 				$_SESSION['is_logged_in'] = true;
-				$_SESSION['user'] = $row['Username'];
+				$_SESSION['user'] = $row['username'];
 
 				if ($admin == 1) {
 					unset($_SESSION['class']);
