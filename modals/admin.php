@@ -40,7 +40,8 @@ class AdminModel extends Model {
 
 	public function pending() {
 
-		$this->query('SELECT * FROM PointsTable WHERE Approved = 0 OR Approved = NULL');
+		$this->query('SELECT * FROM PointsTable, users WHERE (Approved = 0 OR Approved = NULL) AND PointsTable.User = users.Username AND users.class = :class' );
+		$this->bind(':class', $_SESSION['class']);
 		$rows = $this->resultSet();
 		return $rows;
 
