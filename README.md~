@@ -11,7 +11,7 @@ A webpage for students to enter activity points and certificates.
 
 CREATE TABLE `PointsTable` (
   `No` int(10) UNSIGNED NOT NULL,
-  `Activity` text NOT NULL,
+  `Activity` text CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `Level` int(11) DEFAULT NULL,
   `Prize` int(11) NOT NULL,
   `Involvement` int(11) NOT NULL,
@@ -22,8 +22,7 @@ CREATE TABLE `PointsTable` (
   `Comments` text,
   `Year` int(11) NOT NULL,
   `AddDate` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `User` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
-  `uploaded` tinyint(1) NOT NULL
+  `User` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 ALTER TABLE `PointsTable`
