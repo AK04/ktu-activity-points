@@ -32,8 +32,7 @@
                     <select class="form-control" name="userType">
                         
                         <option value="student" selected> Student </option>
-                        <option value="staff"> Faculty </option>
-                        <option value="admin"> Admin </option>
+                        <option value="staff"> Staff </option>
                         
                     </select>
                     

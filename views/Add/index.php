@@ -97,7 +97,7 @@
 
             <div class="form-group">
 
-                <label class="col-form-label" >Document: </label> 
+                <label class="col-form-label" >Document: (File name should be 'rollno_doc_x.extension' Eg: CS18B1_doc_2.jpg) </label> 
                 <input class="form-control" type="file" name="fileToUpload" id="fileToUpload">              
 
             </div>

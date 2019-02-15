@@ -14,9 +14,9 @@
                 <th scope="col">ACTIVITY</th>
                 <th scope="col">POINTS</th>
                 <th scope="col">DOCUMENTS</th>
-                <th scope="col">ST<a href="https://github.com/Joe1912" target="_blank" style="color: white;">A</a>TUS</th>
-                <th scope="col">D<a href="https://github.com/alfvj17" target="_blank" style="color: white;">A</a>TE <a href="https://github.com/Nikhil713" target="_blank" style="color: white;">A</a>DDED</th>
-                <th scope="col">COMMENTS</th>
+                <th scope="col">STATUS</th>
+                <th scope="col">DATE ADDED</th>
+                <th scope="col">UPLOADED</th>
             </tr>
         </thead>
 
@@ -43,15 +43,14 @@
                 ?></th>
 
                 <th><?php echo $item['AddDate']; ?></th>
-                <th><?php 
-                    if ($item['Comments'] == null) 
-                         echo "No comments";                    
-                    else
-                        echo $item['Comments'];
-                ?></th>
+                <th> <a class="btn btn-success btn-sm" href="<?php echo ROOTPATH; ?>?controller=admin&action=changeuploadStatus&change=1&no=<?php echo $item['No']; ?>" style="margin-bottom: 2px;" >uploaded</a>
+                </th>            
             </tr>
 
             <?php endforeach; ?>
+            <tr>
+            <td colspan="7" align="center">  <a class="btn btn-success" target="_blank" href="<?php echo ROOT_URL.$item['Document'];?>">View</a>
+            
 
         </tbody>
 

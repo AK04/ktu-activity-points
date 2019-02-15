@@ -25,7 +25,7 @@
         <div class="col-12 cent" style="margin-bottom: 5px;">
             <a class="btn btn-primary btn-lg" style="width: 200px; margin-right: 5px;" href="<?php echo ROOTPATH; ?>?controller=admin&action=pending">View Pending List</a>
             <a class="btn btn-primary btn-lg" style="width: 200px;" href="<?php echo ROOTPATH; ?>?controller=admin&action=classList">View Class Table</a>
-            <a class="btn btn-primary btn-lg" style="width: 250px;" href="<?php echo ROOTPATH; ?>?controller=admin&action=uploadList">Change Upload Status</a>
+            <a class="btn btn-primary btn-lg" style="width: 250px;" href="<?php echo ROOTPATH; ?>?controller=admin&action=uploaded">Change Upload Status</a>
         </div>
 
     </div>

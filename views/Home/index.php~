@@ -1,14 +1,12 @@
 <div class="jumbotron">
 
     <h1 class="ktu">KTU ACTIVITY POINTS-MEC</h1>
-       <div class="text-left"> 
-       <?php echo $_SESSION['user']; ?> <br>
-                <?php echo $_SESSION['name']; ?>
-     </div>      
 
     <div style="text-align: right;">  
 
-         
+        <div class="username" > 
+            <?php echo $_SESSION['user']; ?>
+        </div>      
 
         <div>
             <a class="btn btn-info right" href="<?php echo ROOTPATH; ?>?controller=password" style="margin-bottom: 5px">Change Password</a>      
@@ -26,7 +24,9 @@
     </div>    
 
     <br>
-  
+     <div class="text-left"> 
+                <?php echo $_SESSION['name']; ?>
+     </div>      
     <div class="text-center"> 
         <a class="btn btn-primary btn-lg" href="<?php echo ROOTPATH; ?>?controller=add"> Claim Activity Points</a> 
     </div>            

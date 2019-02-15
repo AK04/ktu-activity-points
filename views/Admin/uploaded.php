@@ -14,10 +14,10 @@
                 <th scope="col">ACTIVITY</th>
                 <th scope="col">POINTS</th>
                 <th scope="col">DOCUMENTS</th>
-                <th scope="col">ST<a href="https://github.com/Joe1912" target="_blank" style="color: white;">A</a>TUS</th>
-                <th scope="col">D<a href="https://github.com/alfvj17" target="_blank" style="color: white;">A</a>TE <a href="https://github.com/Nikhil713" target="_blank" style="color: white;">A</a>DDED</th>
+                <th scope="col">STATUS</th>
+                <th scope="col">DATE ADDED</th>
                 <th scope="col">COMMENTS</th>
-            </tr>
+              </tr>
         </thead>
 
         <tbody>
@@ -49,6 +49,7 @@
                     else
                         echo $item['Comments'];
                 ?></th>
+                
             </tr>
 
             <?php endforeach; ?>

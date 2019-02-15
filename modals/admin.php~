@@ -66,8 +66,8 @@ public function changeuploadStatus() {
 		$this->bind(':points', (int)$userPoints['Points']);
 		$this->execute();
 */
-     $rno=$user['User'];
-     	header('Location: '.ROOT_URL.'?controller=admin&action=uploadProfile&student= '.$rno );
+     $rno=$_GET['no'];
+     	header('Location: '.ROOT_URL.'?controller=admin&action=uploadProfile&student= '.$user );
 
 	}
 

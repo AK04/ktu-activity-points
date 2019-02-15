@@ -413,8 +413,8 @@ class AddModel extends Model {
 		$post = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
 		if($post['submit']) {
-
-			$target_dir = SITE_ROOT . "/assets/Documents/";
+            
+           	$target_dir = SITE_ROOT . "/assets/Documents/";
 			$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 			$file_link = "assets/Documents/" . basename($_FILES["fileToUpload"]["name"]);
 
@@ -425,7 +425,13 @@ class AddModel extends Model {
 			$file_type =$_FILES['fileToUpload']['type'];
 
 			//$check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-
+            $s=explode('_',$_FILES["fileToUpload"]["name"]);
+            if($s[0]!=$_SESSION['user'])
+            {
+				Messages::setMsg("filename should start with rollno", 'error');
+				return;
+			    $uploadOk = 0;
+			}
 			if (file_exists($target_file)) {
 				Messages::setMsg("Please rename your file", 'error');
 				return;
@@ -440,7 +446,7 @@ class AddModel extends Model {
 		        $uploadOk = 0;
 		    }
 
-		    if ($_FILES["fileToUpload"]["size"] > 1000000) {
+		    if ($_FILES["fileToUpload"]["size"] > 10000000) {
 		    	Messages::setMsg("Sorry, your file is too large", 'error');
 		    	return;
 			    $uploadOk = 0;

@@ -10,7 +10,7 @@ define("DB_NAME","ktu");
 // URL
 define ('SITE_ROOT', realpath(dirname(__FILE__)));
 
-define("ROOTPATH", "/ktu-activity-points/");
-define("ROOT_URL", "http://localhost/ktu-activity-points/");
+define("ROOTPATH", "/activity");
+define("ROOT_URL", "/activity/");
 
 

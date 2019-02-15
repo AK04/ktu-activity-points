@@ -2,7 +2,7 @@
     
     <div class="header text-center">
         
-        <h2><b>KTU ACTIVITY POINTS(BETA) <br>MEC</b></h2>
+        <h2><b>User Creation<br>MEC</b></h2>
         
         <hr>
         
@@ -14,7 +14,7 @@
             
             <form method="post" action="<?php $_SERVER['PHP_SELF']; ?>">
                 
-                <p class="lead">Please login with your identifiers:</p>
+              
                 
                 <div class="form-group">
                     
@@ -24,22 +24,18 @@
                                     
                 <div class="form-group">
                 
-                    <input type="password" name="password" class="form-control" placeholder="Password" />
+                    <input type="text" name="password" class="form-control" placeholder="Password" />
+                </div>
+                  <div class="form-group">
+                
+                    <input type="text" name="cls" class="form-control" placeholder="Class" />
                 </div>
                 
-                <div class="form-group">
-                    
-                    <select class="form-control" name="userType">
-                        
-                        <option value="student" selected> Student </option>
-                        <option value="staff"> Faculty </option>
-                        <option value="admin"> Admin </option>
-                        
-                    </select>
+               
                     
                 </div>
                 
-            <input class="btn btn-primary loginBtn" type="submit" name="submit" value="Login">
+            <input class="btn btn-primary loginBtn" type="submit" name="submit" value="Submit">
                 
         </form>
             

@@ -31,9 +31,6 @@
 
 </body>
 
-<footer class="text-center">
-  <p>If you want to make this website better, feel free to contribute <a href="https://github.com/AK04/ktu-activity-points" target="_blank">here</a>! </p>
-  <p>Written in beautiful <a href="<?php echo ROOTPATH; ?>assets/images/beautifulPHP.jpg" target="_blank">PHP</a> by <a href="https://github.com/AK04" target="_blank">Albin Kottaram</a></p>
- </footer>
+
 
 </html>

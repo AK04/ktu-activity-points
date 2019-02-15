@@ -15,7 +15,7 @@ class LoginModel extends Model{
 				$this->bind(':password', md5($post['password']));
 				
 				$row = $this->single();
-            	
+            	$_SESSION['name'] = $row['Name'];
 				$admin = 0;
 
 			}
@@ -54,7 +54,6 @@ class LoginModel extends Model{
 
 				else {
 					$_SESSION['user'] = $row['Username'];
-						$_SESSION['name'] = $row['Name'];
 					header('Location: '.ROOT_URL.'?controller=home');
 				}
 

@@ -27,9 +27,9 @@
 
             <div class="form-group">
 
-                <label class="col-form-label">Admission No:</label>
-                <input type="text" name="admno" class="form-control" value="<?php echo $_SESSION['admno']; ?>">
-                <small class="text-muted">Eg: 7924/17</small>
+                <label class="col-form-label">Name:</label>
+                <input type="text" name="name" class="form-control" value="<?php echo $_SESSION['name']; ?>">
+               
 
             </div>
 

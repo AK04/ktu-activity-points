@@ -38,40 +38,6 @@ class AdminModel extends Model {
 
 	}
 
-public function changeuploadStatus() {
-
-		if ($_SESSION['admin'] != 1) {
-			header('Location: '.ROOT_URL);
-		}
-
-		// Change Approved status for Activity
-		$this->query('UPDATE `PointsTable` SET `uploaded` =1 WHERE `PointsTable`.`No` = :no;');
-	//	$this->bind(':change',$_GET['change']);
-		$this->bind(':no',$_GET['no']);
-		$this->execute();
-
-		// Get student User Name
-		$this->query('SELECT User FROM PointsTable WHERE No = :no;');
-		$this->bind(':no',$_GET['no']);
-		$user = $this->single();
-
-		// Gets total points of student
-		$this->query('SELECT SUM(Points) as Points FROM PointsTable WHERE User = :username AND Approved = 1;');
-		$this->bind(':username', $user['User']);
-		$userPoints = $this->single();
-		
-	/*	// Update points in user table
-		$this->query('UPDATE users SET TotalPoints = :points WHERE Username = :username;');
-		$this->bind(':username', $user['User']);
-		$this->bind(':points', (int)$userPoints['Points']);
-		$this->execute();
-*/
-     $rno=$user['User'];
-     	header('Location: '.ROOT_URL.'?controller=admin&action=uploadProfile&student= '.$rno );
-
-	}
-
-
 	public function pending() {
 
 		$this->query('SELECT * FROM PointsTable, users WHERE (Approved = 0 OR Approved = NULL) AND PointsTable.User = users.Username AND users.class = :class' );
@@ -91,15 +57,6 @@ public function changeuploadStatus() {
 	}
 
 	public function studentProfile() {
-
-		$this->query('SELECT * FROM PointsTable WHERE User = :username ORDER BY AddDate DESC;');
-		$this->bind(':username', $_GET['student']);		
-		$rows = $this->resultSet();
-
-		return $rows;
-
-	}
-	public function uploadProfile() {
 
 		$this->query('SELECT * FROM PointsTable WHERE User = :username ORDER BY AddDate DESC;');
 		$this->bind(':username', $_GET['student']);		
@@ -274,16 +231,6 @@ public function advisorCreation() {
 
 		return;
 
-
-	}
-	
-	//
-	public function uploadList() {
-
-		$this->query('SELECT * FROM users WHERE Class = :class;');
-		$this->bind(':class', $_SESSION['class']);
-		$rows = $this->resultSet();
-		return $rows;
 
 	}
 

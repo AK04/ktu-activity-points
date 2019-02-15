@@ -11,7 +11,7 @@
         <thead class="thead-dark">
             <tr>
                 <th scope="col">#</th>
-                <th scope="col"><a href="https://github.com/AK04" target="_blank" style="color: white;">S</a>TUDENT</th>
+                <th scope="col">STUDENT</th>
                 <th scope="col">TOTAL POINTS</th>
                 <th scope="col">REGISTER NO.</th>
                 <th scope="col">NAME</th>
